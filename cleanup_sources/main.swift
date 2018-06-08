@@ -3,13 +3,19 @@ import Foundation
 
 class CleanupSources {
     let fs = FileManager.default
+    var filesModified = 0
     
     func run() {
         if correctLocation() {
-            walkDirectory(currentDirectory())
+            walkCurrentLocation()
         } else {
             print("Launched in wrong location: [" + fs.currentDirectoryPath + "]")
         }
+    }
+    
+    func walkCurrentLocation() {
+        walkDirectory(currentDirectory())
+        reportResult()
     }
     
     func currentDirectory() -> URL {
@@ -37,7 +43,6 @@ class CleanupSources {
     }
     
     func handleSwiftFile(_ path: URL) {
-        print(path.path)
         do {
             try adjustFile(path)
         } catch {
@@ -62,9 +67,7 @@ class CleanupSources {
         var split = text.split(separator: "\n", omittingEmptySubsequences: false)
         var linesToOmit = 0
         for line in split {
-            print("line: [" + line + "]")
             if line.hasPrefix("//") {
-                print("Omitting line")
                 linesToOmit += 1
             } else {
                 break
@@ -76,6 +79,14 @@ class CleanupSources {
     
     func writeFile(_ path: URL, _ text: String) throws {
         try text.write(to: path, atomically: true, encoding: .utf8)
+    }
+    
+    func reportResult() {
+        if filesModified == 0 {
+            print(localize("no files modified"))
+        } else {
+            print("\(filesModified) files were modified")
+        }
     }
 }
 
