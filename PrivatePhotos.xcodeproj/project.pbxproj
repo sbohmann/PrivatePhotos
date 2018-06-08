@@ -16,6 +16,7 @@
 		968426BE20CA624000E1774D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 968426BC20CA624000E1774D /* LaunchScreen.storyboard */; };
 		968426C920CA624000E1774D /* PrivatePhotosTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968426C820CA624000E1774D /* PrivatePhotosTests.swift */; };
 		968426D420CA624000E1774D /* PrivatePhotosUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968426D320CA624000E1774D /* PrivatePhotosUITests.swift */; };
+		968426F020CA671200E1774D /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968426EF20CA671100E1774D /* main.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +36,18 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		968426E520CA65E600E1774D /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		968426AC20CA624000E1774D /* PrivatePhotos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PrivatePhotos.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		968426AF20CA624000E1774D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -51,6 +64,8 @@
 		968426CF20CA624000E1774D /* PrivatePhotosUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PrivatePhotosUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		968426D320CA624000E1774D /* PrivatePhotosUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivatePhotosUITests.swift; sourceTree = "<group>"; };
 		968426D520CA624000E1774D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		968426E720CA65E600E1774D /* cleanup_sources */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = cleanup_sources; sourceTree = BUILT_PRODUCTS_DIR; };
+		968426EF20CA671100E1774D /* main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,12 +90,20 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		968426E420CA65E600E1774D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		968426A320CA624000E1774D = {
 			isa = PBXGroup;
 			children = (
+				968426E120CA657A00E1774D /* cleanup_sources */,
 				968426AE20CA624000E1774D /* PrivatePhotos */,
 				968426C720CA624000E1774D /* PrivatePhotosTests */,
 				968426D220CA624000E1774D /* PrivatePhotosUITests */,
@@ -94,6 +117,7 @@
 				968426AC20CA624000E1774D /* PrivatePhotos.app */,
 				968426C420CA624000E1774D /* PrivatePhotosTests.xctest */,
 				968426CF20CA624000E1774D /* PrivatePhotosUITests.xctest */,
+				968426E720CA65E600E1774D /* cleanup_sources */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -129,6 +153,14 @@
 				968426D520CA624000E1774D /* Info.plist */,
 			);
 			path = PrivatePhotosUITests;
+			sourceTree = "<group>";
+		};
+		968426E120CA657A00E1774D /* cleanup_sources */ = {
+			isa = PBXGroup;
+			children = (
+				968426EF20CA671100E1774D /* main.swift */,
+			);
+			path = cleanup_sources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -187,6 +219,23 @@
 			productReference = 968426CF20CA624000E1774D /* PrivatePhotosUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		968426E620CA65E600E1774D /* cleanup_sources */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 968426EB20CA65E600E1774D /* Build configuration list for PBXNativeTarget "cleanup_sources" */;
+			buildPhases = (
+				968426E320CA65E600E1774D /* Sources */,
+				968426E420CA65E600E1774D /* Frameworks */,
+				968426E520CA65E600E1774D /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = cleanup_sources;
+			productName = cleanup_sources;
+			productReference = 968426E720CA65E600E1774D /* cleanup_sources */;
+			productType = "com.apple.product-type.tool";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -211,6 +260,11 @@
 						ProvisioningStyle = Automatic;
 						TestTargetID = 968426AB20CA624000E1774D;
 					};
+					968426E620CA65E600E1774D = {
+						CreatedOnToolsVersion = 9.2;
+						LastSwiftMigration = 0920;
+						ProvisioningStyle = Automatic;
+					};
 				};
 			};
 			buildConfigurationList = 968426A720CA624000E1774D /* Build configuration list for PBXProject "PrivatePhotos" */;
@@ -229,6 +283,7 @@
 				968426AB20CA624000E1774D /* PrivatePhotos */,
 				968426C320CA624000E1774D /* PrivatePhotosTests */,
 				968426CE20CA624000E1774D /* PrivatePhotosUITests */,
+				968426E620CA65E600E1774D /* cleanup_sources */,
 			);
 		};
 /* End PBXProject section */
@@ -285,6 +340,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				968426D420CA624000E1774D /* PrivatePhotosUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		968426E320CA65E600E1774D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				968426F020CA671200E1774D /* main.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -526,6 +589,37 @@
 			};
 			name = Release;
 		};
+		968426EC20CA65E600E1774D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 327TCYU8D4;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.0;
+			};
+			name = Debug;
+		};
+		968426ED20CA65E600E1774D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 327TCYU8D4;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_VERSION = 4.0;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -561,6 +655,15 @@
 			buildConfigurations = (
 				968426DF20CA624000E1774D /* Debug */,
 				968426E020CA624000E1774D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		968426EB20CA65E600E1774D /* Build configuration list for PBXNativeTarget "cleanup_sources" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				968426EC20CA65E600E1774D /* Debug */,
+				968426ED20CA65E600E1774D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
