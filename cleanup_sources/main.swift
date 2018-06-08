@@ -1,10 +1,3 @@
-//
-//  cleanup_sources.swift
-//  PrivatePhotos
-//
-//  Created by Sebastian Bohmann on 08/06/2018.
-//  Copyright © 2018 Sebastian Bohmann. All rights reserved.
-//
 
 import Foundation
 
@@ -32,9 +25,9 @@ class CleanupSources {
             subPaths.forEach({ subPath in handleSubPath(subPath) })
         }
     }
-
+    
     func handleSubPath(_ path: URL) {
-        if (path.lastPathComponent.starts(with: ".")) {
+        if (path.lastPathComponent.hasPrefix(".")) {
             return
         }
         if path.pathExtension == "swift" {
@@ -46,11 +39,43 @@ class CleanupSources {
     func handleSwiftFile(_ path: URL) {
         print(path.path)
         do {
-            let text = try String(contentsOf: path, encoding: .utf8)
-            
+            try adjustFile(path)
         } catch {
             print(error.localizedDescription)
         }
+    }
+    
+    func adjustFile(_ path: URL) throws {
+        let text = try readFile(path)
+        let adjustedText = adjustText(text)
+        if (adjustedText != text) {
+            print("writing file " + path.path)
+            try writeFile(path, adjustedText)
+        }
+    }
+    
+    func readFile(_ path: URL) throws -> String {
+        return try String(contentsOf: path, encoding: .utf8)
+    }
+    
+    func adjustText(_ text: String) -> String {
+        var split = text.split(separator: "\n", omittingEmptySubsequences: false)
+        var linesToOmit = 0
+        for line in split {
+            print("line: [" + line + "]")
+            if line.hasPrefix("//") {
+                print("Omitting line")
+                linesToOmit += 1
+            } else {
+                break
+            }
+        }
+        split.removeSubrange(0 ..< linesToOmit)
+        return split.joined(separator: "\n")
+    }
+    
+    func writeFile(_ path: URL, _ text: String) throws {
+        try text.write(to: path, atomically: true, encoding: .utf8)
     }
 }
 

@@ -1,14 +1,6 @@
-//
-//  PrivatePhotosTests.swift
-//  PrivatePhotosTests
-//
-//  Created by Sebastian Bohmann on 08/06/2018.
-//  Copyright © 2018 Sebastian Bohmann. All rights reserved.
-//
-
 import XCTest
-@testable import PrivatePhotos
 
+@testable import PrivatePhotos
 class PrivatePhotosTests: XCTestCase {
     override func setUp() {
         super.setUp()
